@@ -1,0 +1,26 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="/skinImgUpload">
+			<table>
+				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<ul>
+			<li th:each="skinImg : ${skinImgs}">
+				<a th:href="${skinImg}" th:text="${skinImg}" /><img width="50" height="50" th:src="${skinImg}"></li>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>
